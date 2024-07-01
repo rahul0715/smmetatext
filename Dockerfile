@@ -1,18 +1,18 @@
+# Use Python runtime as a base image
 FROM python:3.12.4
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        gcc \
-        libffi-dev \
-        libssl-dev \
-        musl-dev \
-        && rm -rf /var/lib/apt/lists/*
-
+# Set working directory
 WORKDIR /app
 
+# Copy requirements.txt and install dependencies
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of your application code
 COPY . .
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+# Expose the port your application runs on
+EXPOSE 80
 
+# Specify the command to run your application
 CMD ["python3", "modules/main.py"]
