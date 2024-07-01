@@ -40,11 +40,5 @@
     {
       "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
     }
-  ],
-  "env": {
-    "PYTHON_RUNTIME_VERSION": {
-      "description": "Specify the Python runtime version (e.g., python-3.11.9)",
-      "value": "python-3.11.9"
-    }
-  }
+  ]
 }
