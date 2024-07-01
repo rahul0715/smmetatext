@@ -1,5 +1,6 @@
 build:
   docker:
     web: Dockerfile
-  config:
-    runtime: python-3.8.12
+
+run:
+  web: python main.py
