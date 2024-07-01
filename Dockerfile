@@ -1,18 +1,24 @@
-# Use Python runtime as a base image
-FROM python:3.12.4
+# Use Python 3.10.12 as the base image
+FROM python:3.10.12
 
-# Set working directory
+# Update and install necessary packages
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends \
+    gcc \
+    libffi-dev \
+    musl-dev \
+    ffmpeg \
+    aria2 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements.txt and install dependencies
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of your application code
+# Copy all files from the current directory to the container's /app directory
 COPY . .
 
-# Expose the port your application runs on
-EXPOSE 80
+# Install Python dependencies
+RUN pip3 install --no-cache-dir --upgrade --requirement requirements.txt
 
-# Specify the command to run your application
+# Command to run your application
 CMD ["python3", "modules/main.py"]
