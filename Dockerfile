@@ -1,6 +1,6 @@
 FROM python:3.10.12
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Install necessary packages
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
     gcc \
@@ -10,14 +10,14 @@ RUN apt-get update -y && \
     aria2 \
     && rm -rf /var/lib/apt/lists/*
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Set the working directory
 WORKDIR /app
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Copy the project files into the container
 COPY . .
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
-RUN pip3 install --no-cache-dir --upgrade --requirement Installer
+# Install Python dependencies
+RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Start the bot
 CMD ["python3", "modules/main.py"]
