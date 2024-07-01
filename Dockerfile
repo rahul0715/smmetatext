@@ -1,23 +1,18 @@
-FROM python-3.12.4
+FROM python:3.12.4
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
-RUN apt-get update -y && \
+RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    gcc \
-    libffi-dev \
-    musl-dev \
-    ffmpeg \
-    aria2 \
-    && rm -rf /var/lib/apt/lists/*
+        gcc \
+        libffi-dev \
+        libssl-dev \
+        musl-dev \
+        && rm -rf /var/lib/apt/lists/*
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 WORKDIR /app
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 COPY . .
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
-RUN pip3 install --no-cache-dir --upgrade --requirement Installer
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 CMD ["python3", "modules/main.py"]
