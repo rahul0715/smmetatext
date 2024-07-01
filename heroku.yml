@@ -1,5 +1,5 @@
 build:
   docker:
-    worker: Dockerfile
-run:
-  worker: python3 modules/main.py
+    web: Dockerfile
+  config:
+    runtime: python-3.12.4
