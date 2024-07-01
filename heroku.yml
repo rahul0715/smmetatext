@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
   config:
-    runtime: python-3.12.4
+    runtime: python-3.8.12
