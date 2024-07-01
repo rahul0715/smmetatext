@@ -1,4 +1,4 @@
-FROM python:3.10.12
+FROM python-3.12.4
 
 # This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 RUN apt-get update -y && \
