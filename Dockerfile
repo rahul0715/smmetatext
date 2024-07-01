@@ -10,14 +10,14 @@ RUN apt-get update -y && \
     aria2 \
     && rm -rf /var/lib/apt/lists/*
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Set the working directory
 WORKDIR /app
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Copy all files from the current directory to the working directory in the container
 COPY . .
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Install Python dependencies from the Installer file
 RUN pip3 install --no-cache-dir --upgrade --requirement Installer
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Set the command to run your application
 CMD ["python3", "modules/main.py"]
