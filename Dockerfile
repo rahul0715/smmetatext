@@ -1,5 +1,5 @@
 # Use Python 3.10.12 as the base image
-FROM python:3.10.12
+FROM python-3.8.12
 
 # Update and install necessary packages
 RUN apt-get update -y && \
