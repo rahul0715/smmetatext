@@ -1,5 +1,6 @@
 FROM python:3.10.12
 
+# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
     gcc \
@@ -9,11 +10,14 @@ RUN apt-get update -y && \
     aria2 \
     && rm -rf /var/lib/apt/lists/*
 
+# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 WORKDIR /app
 
+# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 COPY . .
 
-# Change this line to ensure it points to the correct requirements file
-RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+RUN pip3 install --no-cache-dir --upgrade --requirement Installer
 
+# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
 CMD ["python3", "modules/main.py"]
