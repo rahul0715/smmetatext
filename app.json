@@ -10,18 +10,6 @@
   "repository": "https://github.com/XdityaHalder/SankiMusic",
   "success_url": "https://t.me/AdityaDiscus",
   "stack": "container",
-  "addons": [],
-  "buildpacks": [
-    {
-      "url": "heroku/python"
-    },
-    {
-      "url": "https://github.com/amivin/aria2-heroku.git"
-    },
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-    }
-  ],
   "env": {
     "API_ID": {
       "description": "𝑬𝒏𝒕𝒆𝒓 𝒀𝒐𝒖𝒓 𝑨𝒑𝒊 𝑰𝑫",
@@ -43,5 +31,14 @@
       "description": "𝑺𝒖𝒅𝒐 𝑰𝑫'𝒔 (𝒀𝒐𝒖 𝑪𝒂𝒏 𝑨𝒅𝒅 𝑴𝒖𝒍𝒕𝒊𝒑𝒍𝒆 𝑩𝒚 𝑮𝒊𝒗𝒊𝒏𝒈 𝑺𝒑𝒂𝒄𝒆)",
       "required": true
     }
-  }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ]
 }
