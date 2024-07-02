@@ -1,23 +1,14 @@
-FROM python:3.10.12
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends \
-    gcc \
-    libffi-dev \
-    musl-dev \
-    ffmpeg \
-    aria2 \
-    && rm -rf /var/lib/apt/lists/*
-
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Set the working directory in the container
 WORKDIR /app
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Copy the current directory contents into the container at /app
 COPY . .
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
-RUN pip3 install --no-cache-dir --upgrade --requirement Installer
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# This Dockerfile Created By Mr. Ankush Yadav.  Github.com/Mswpresents
+# Run main.py when the container launches
 CMD ["python3", "modules/main.py"]
