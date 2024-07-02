@@ -1,6 +1,6 @@
 async-lru==2.0.2
 certifi==2023.5.7
-charset-normalizer==3.0.4  # Consider loosening if necessary
+charset-normalizer>=3.0.0  # Loosened version constraint
 idna==3.4
 mutagen==1.46.0
 pyaes==1.6.1
@@ -14,8 +14,7 @@ soupsieve==2.4.1
 TgCrypto==1.2.5
 urllib3==2.0.3
 websockets==11.0.3
-# Try a different yt-dlp version that might not include brotli by default
-yt-dlp==<version_without_brotli>
+yt-dlp==2023.6.22  # Might not include brotli by default
 motor
 aiohttp==3.8.1  # Downgraded for compatibility
 aiofiles
@@ -24,5 +23,5 @@ umongo==3.1.0
 speedtest-cli
 typing-extensions>=4.0.0  # Might be included in async-lru
 # Removed pycryptodomex (from yt-dlp)  # Commented out (if applicable)
-# Removed brotli (from yt-dlp)  # Implicitly removed with different yt-dlp version
+# Removed brotli (from yt-dlp)  # Implicitly removed with different yt-dlp version (optional)
 attrs>=17.3.0  # Might be installed with aiohttp
