@@ -1,6 +1,6 @@
 async-lru==2.0.2
 certifi==2023.5.7
-charset-normalizer>=2.0.0  # Loosen the version constraint
+charset-normalizer>=2.0.0
 idna==3.4
 mutagen==1.46.0
 pyaes==1.6.1
@@ -9,19 +9,17 @@ pyrogram==2.0.106
 pyromod==1.5
 PySocks==1.7.1
 python-dotenv==1.0.0
-requests==2.31.0  # Consider upgrading if compatible with your project
+requests==2.31.0
 soupsieve==2.4.1
 TgCrypto==1.2.5
 urllib3==2.0.3
 websockets==11.0.3
-yt-dlp==2023.6.22  # Might not include brotli by default
+yt-dlp==2023.6.22
 motor
-aiohttp==3.8.1  # Downgraded for compatibility
+aiohttp==3.8.1
 aiofiles
 pytz
 umongo==3.1.0
 speedtest-cli
-typing-extensions>=4.0.0  # Might be included in async-lru
-# Removed pycryptodomex (from yt-dlp)  # Commented out (if applicable)
-# Removed brotli (from yt-dlp)  # Implicitly removed with different yt-dlp version (optional)
-attrs>=17.3.0  # Might be installed with aiohttp
+typing-extensions>=4.0.0
+attrs>=17.3.0
