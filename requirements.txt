@@ -1,6 +1,6 @@
 async-lru==2.0.2
 certifi==2023.5.7
-charset-normalizer==3.3.2
+charset-normalizer>=2.0,<4  # Updated to allow compatibility
 idna==3.4
 mutagen==1.46.0
 pyaes==1.6.1
