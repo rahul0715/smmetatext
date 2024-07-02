@@ -1,14 +1,21 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim
+# Use the official Python image from the Docker Hub
+FROM python:3.10-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . .
+# Copy the requirements file into the container at /app
+COPY requirements.txt .
 
-# Install any needed packages specified in requirements.txt
+# Install any dependencies specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run main.py when the container launches
-CMD ["python3", "modules/main.py"]
+# Copy the rest of the application code into the container at /app
+COPY . .
+
+# Run the application
+CMD ["python", "modules/main.py"]
