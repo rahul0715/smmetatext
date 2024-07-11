@@ -30,21 +30,21 @@ bot = Client(
 
                     # Code For Txt Extract
 
-@bot.on_message(filters.command(["start"]) & filters.chat(sudo_group))
+@bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text(f"Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) \n use /txt to download txt\n")
 
-@bot.on_message(filters.command("stop") & filters.chat(sudo_group))
+@bot.on_message(filters.command("stop"))
 async def restart_handler(_, m):
     await m.reply_text("**STOPPED**", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
-@bot.on_message(filters.command("restart") & (filters.chat(sudo_group)))
+@bot.on_message(filters.command("restart"))
 async def restart_handler(_, m):
     await m.reply_text("**Restarted! बस करो Bro अब थक गया हु 🥹**", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
-@bot.on_message(filters.command(["txt"]) & filters.chat(sudo_group))
+@bot.on_message(filters.command(["txt"]))
 async def txt_handler(bot: Client, m: Message):
     
     if batch != []:
