@@ -1,36 +1,26 @@
-from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
-import requests
+import os
+import re
+import sys
 import json
-import subprocess
-from pyrogram import Client, filters
-from pyrogram.types.messages_and_media import message
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.errors import FloodWait
-from pyromod import listen
-from pyrogram.types import Message
-from pyrogram import Client, filters
-from p_bar import progress_bar
-from subprocess import getstatusoutput
-from aiohttp import ClientSession
-import helper
-from logger import logging
 import time
 import asyncio
-from pyrogram.types import User, Message
-from config import *
-import sys
-import re
-import os
-import config
-from config import sudo_group, log_channel
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import unpad
-from base64 import b64decode
-import base64
-import aiohttp
-from datetime import datetime
+import requests
+import subprocess
 
-                    # Code For Txt Extract
+import core as helper
+from utils import progress_bar
+from vars import api_id, api_hash, bot_token
+from aiohttp import ClientSession
+from pyromod import listen
+from subprocess import getstatusoutput
+
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from pyrogram.errors import FloodWait
+from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
+from pyrogram.types.messages_and_media import message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 
 bot = Client(
     "bot",
@@ -38,18 +28,16 @@ bot = Client(
     api_hash=api_hash,
     bot_token=bot_token)
 
+                    # Code For Txt Extract
 
 @bot.on_message(filters.command(["start"]) & filters.chat(sudo_group))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text(f"Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) \n use /txt to download txt\n")
 
-
 @bot.on_message(filters.command("stop") & filters.chat(sudo_group))
 async def restart_handler(_, m):
     await m.reply_text("**STOPPED**", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
-
-
 
 @bot.on_message(filters.command("restart") & (filters.chat(sudo_group)))
 async def restart_handler(_, m):
