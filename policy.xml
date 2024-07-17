@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policymap [
+  <!ELEMENT policymap (policy)+>
+  <!ELEMENT policy EMPTY>
+  <!ATTLIST policy domain (delegate|coder|filter|path|resource|system|cache|misc) #IMPLIED>
+  <!ATTLIST policy rights (none|read|write|execute|assemble) #IMPLIED>
+  <!ATTLIST policy pattern CDATA #IMPLIED>
+  <!ATTLIST policy value CDATA #IMPLIED>
+]>
+<policymap>
+  <policy domain="path" rights="read|write" pattern="@*"/>
+</policymap>
