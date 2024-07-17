@@ -1,4 +1,3 @@
-
 {
     "name": "𝐓𝐞𝐱𝐭 𝐋𝐞𝐞𝐜𝐡",
     "description": "𝑻𝒆𝒙𝒕 𝑳𝒆𝒆𝒄𝒉 𝑽𝒊𝒅𝒆𝒐 𝑬𝒙𝒕𝒓𝒂𝒄𝒕𝒐𝒓 𝑭𝒐𝒓 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎",
@@ -40,6 +39,9 @@
         },
         {
             "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        },
+        {
+            "url": "https://github.com/amivin/aria2-heroku.git"
         }
     ]
-    }
+}
