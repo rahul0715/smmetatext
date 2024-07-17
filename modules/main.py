@@ -169,8 +169,8 @@ async def account_login(bot: Client, m: Message):
                 duration_cmd = f'ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "{name}.mp4"'
                 duration = subprocess.getoutput(duration_cmd).strip()
 
-                # Check if duration is a valid float
-                if not duration:
+                # Check if duration is a valid number
+                if not duration.replace('.', '', 1).isdigit():
                     raise ValueError(f"Could not retrieve duration for {name}.mp4")
 
                 duration = int(float(duration))
