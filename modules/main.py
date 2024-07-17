@@ -159,22 +159,28 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'** {str(count).zfill(3)}.** {name1}{MR}♌️.mkv\n\n**Batch Name :** {raw_text0}\n\n**Downloaded By** : **{MR}**'
-                cc1 = f'** {str(count).zfill(3)}.** {name1}{MR}♌️.pdf \n\n**Batch Name :** {raw_text0}\n\n**Downloaded By** : **{MR}**'
+                # Execute the download command
+                subprocess.run(cmd, shell=True, check=True)
 
-                if "drive" in url:
-                    cc = f'** {str(count).zfill(3)}.** {name1}{MR}♌️.mp4 \n\n**Batch Name :** {raw_text0}\n\n**Downloaded By** : **{MR}**'
-                filename = f'{name}.mp4'
+                # Verify the file exists before trying to get its duration
+                if not os.path.exists(f"{name}.mp4"):
+                    raise FileNotFoundError(f"{name}.mp4 not found after download.")
 
-                duration_cmd = f'ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "{filename}"'
-                duration = subprocess.getoutput(duration_cmd)
+                duration_cmd = f'ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "{name}.mp4"'
+                duration = subprocess.getoutput(duration_cmd).strip()
+
+                # Check if duration is a valid float
+                if not duration:
+                    raise ValueError(f"Could not retrieve duration for {name}.mp4")
+
+                duration = int(float(duration))
 
                 thumbnail = "thumb.jpg" if thumb != "no" else None
 
                 await m.reply_video(
                     video=f"{name}.mp4",
-                    duration=int(float(duration)),
-                    caption=cc,
+                    duration=duration,
+                    caption=f'**{str(count).zfill(3)}.** {name1}{MR}♌️.mp4 \n\n**Batch Name :** {raw_text0}\n\n**Downloaded By** : **{MR}**',
                     supports_streaming=True,
                     thumb=thumbnail,
                     quote=True,
