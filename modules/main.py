@@ -147,29 +147,19 @@ async def account_login(bot: Client, m: Message):
                         text = await resp.text()
                         url = re.search(r"(https://.*?playlist.m3u8.*?)\"", text).group(1)
 
-            elif "tencdn.classplusapp" in url:
-                	headers = {'Host': 'api.classplusapp.com', 'x-access-token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA1NDYwMjk1LCJvcmdJZCI6MjIzLCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTcwMDkxMDA1MTIiLCJuYW1lIjoiUGFua2FqIiwiZW1haWwiOm51bGwsImlzSW50ZXJuYXRpb25hbCI6MCwiZGVmYXVsdExhbmd1YWdlIjoiRU4iLCJjb3VudHJ5Q29kZSI6IklOIiwiY291bnRyeUlTTyI6IjkxIiwidGltZXpvbmUiOiJHTVQrNTozMCIsImlzRGl5IjpmYWxzZSwib3JnQ29kZSI6Im1hbHVrYSIsImlzRGl5U3ViYWRtaW4iOjAsImZpbmdlcnByaW50SWQiOiJiNDA0MDFlNDkyMWYzYjBmYWMzMzY5NDcwNTFlMiIsImlhdCI6MTcyMDU0MTgwNSwiZXhwIjoxNzIxMTQ2NjA1fQ.cH9hN0awcuRjvE4vKEgK4F3utMzoJqo8nWP1mVskvF00hQ0-BDdYq7xzqex-eomN', 'user-agent': 'Mobile-Android', 'app-version': '1.4.37.1', 'api-version': '18', 'device-id': '5d0d17ac8b3c9f51', 'device-details': '2848b866799971ca_2848b8667a33216c_SDK-30', 'accept-encoding': 'gzip'}
-                	params = (('url', f'{url}'),)
-                	response = requests.get('https://api.classplusapp.com/cams/uploader/video/jw-signed-url', headers=headers, params=params)
-                	url = response.json()['url']
-                elif "media-cdn-alisg.classplusapp.com" in url:
-                	headers = {'Host': 'api.classplusapp.com', 'x-access-token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA1NDYwMjk1LCJvcmdJZCI6MjIzLCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTcwMDkxMDA1MTIiLCJuYW1lIjoiUGFua2FqIiwiZW1haWwiOm51bGwsImlzSW50ZXJuYXRpb25hbCI6MCwiZGVmYXVsdExhbmd1YWdlIjoiRU4iLCJjb3VudHJ5Q29kZSI6IklOIiwiY291bnRyeUlTTyI6IjkxIiwidGltZXpvbmUiOiJHTVQrNTozMCIsImlzRGl5IjpmYWxzZSwib3JnQ29kZSI6Im1hbHVrYSIsImlzRGl5U3ViYWRtaW4iOjAsImZpbmdlcnByaW50SWQiOiJiNDA0MDFlNDkyMWYzYjBmYWMzMzY5NDcwNTFlMiIsImlhdCI6MTcyMDU0MTgwNSwiZXhwIjoxNzIxMTQ2NjA1fQ.cH9hN0awcuRjvE4vKEgK4F3utMzoJqo8nWP1mVskvF00hQ0-BDdYq7xzqex-eomN', 'user-agent': 'Mobile-Android', 'app-version': '1.4.37.1', 'api-version': '18', 'device-id': '5d0d17ac8b3c9f51', 'device-details': '2848b866799971ca_2848b8667a33216c_SDK-30', 'accept-encoding': 'gzip'}
-                	params = (('url', f'{url}'),)
-                	response = requests.get('https://api.classplusapp.com/cams/uploader/video/jw-signed-url', headers=headers, params=params)
-                	url = response.json()['url']
-                #elif "videos.classplusapp" in url
-                elif 'videos.classplusapp' in url:
-                    a = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers = {'Host': 'api.classplusapp.com', 'x-access-token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA1NDYwMjk1LCJvcmdJZCI6MjIzLCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTcwMDkxMDA1MTIiLCJuYW1lIjoiUGFua2FqIiwiZW1haWwiOm51bGwsImlzSW50ZXJuYXRpb25hbCI6MCwiZGVmYXVsdExhbmd1YWdlIjoiRU4iLCJjb3VudHJ5Q29kZSI6IklOIiwiY291bnRyeUlTTyI6IjkxIiwidGltZXpvbmUiOiJHTVQrNTozMCIsImlzRGl5IjpmYWxzZSwib3JnQ29kZSI6Im1hbHVrYSIsImlzRGl5U3ViYWRtaW4iOjAsImZpbmdlcnByaW50SWQiOiJiNDA0MDFlNDkyMWYzYjBmYWMzMzY5NDcwNTFlMiIsImlhdCI6MTcyMDU0MTgwNSwiZXhwIjoxNzIxMTQ2NjA1fQ.cH9hN0awcuRjvE4vKEgK4F3utMzoJqo8nWP1mVskvF00hQ0-BDdYq7xzqex-eomN', 'user-agent': 'Mobile-Android', 'app-version': '1.4.37.1', 'api-version': '18', 'device-id': '5d0d17ac8b3c9f51', 'device-details': '2848b866799971ca_2848b8667a33216c_SDK-30', 'accept-encoding': 'gzip'}).json()
-                    r = a["url"]
-                    b = requests.get(f"{r}", headers={"X-CDN-Tag": "empty"}).text
-                    b_lines = b.splitlines()
-                    if len(b_lines) >= 3:
-                     su = b_lines[2].strip()
-                     if su.startswith("video/"):
-                      bu = url.split('/')[3]
-                      c = f"https://media-cdn-alisg.classplusapp.com/{bu}/{su}"
-                      url = c
-
+            elif "tencdn.classplusapp" in url or "media-cdn-alisg.classplusapp.com" in url or "videos.classplusapp" in url:
+            headers = {
+                'Host': 'api.classplusapp.com',
+                'x-access-token': 'YOUR_X_ACCESS_TOKEN',
+                'user-agent': 'Mobile-Android',
+                'app-version': '1.4.37.1',
+                'api-version': '18',
+                'device-id': '5d0d17ac8b3c9f51',
+                'device-details': '2848b866799971ca_2848b8667a33216c_SDK-30',
+                'accept-encoding': 'gzip'
+            }
+            response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers=headers)
+            url = response.json().get('url')
 
             elif 'd26g5bnklkwsh4.cloudfront.net' in url or 'd1d34p8vz63oiq.cloudfront.net' in url:
                 id =  url.split("/")[-2]
