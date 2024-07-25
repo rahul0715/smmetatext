@@ -151,7 +151,7 @@ async def account_login(bot: Client, m: Message):
             elif "tencdn.classplusapp" in url or "media-cdn-alisg.classplusapp.com" in url or "videos.classplusapp" in url:
                 headers = {
                     'Host': 'api.classplusapp.com',
-                    'x-access-token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MTI0NDYzNDQyLCJvcmdJZCI6NzExNTI4LCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTkwNTA2MzE0NzciLCJuYW1lIjoiTWFoZW5kcmFrdW1hcjA5NDExIiwiZW1haWwiOm51bGwsImlzSW50ZXJuYXRpb25hbCI6MCwiZGVmYXVsdExhbmd1YWdlIjoiRU4iLCJjb3VudHJ5Q29kZSI6IklOIiwiY291bnRyeUlTTyI6IjkxIiwidGltZXpvbmUiOiJHTVQrNTozMCIsImlzRGl5IjpmYWxzZSwib3JnQ29kZSI6InVqYWxhZiIsImlzRGl5U3ViYWRtaW4iOjAsImZpbmdlcnByaW50SWQiOiJiNDA0MDFlNDkyMWYzYjBmYWMzMzY5NDcwNTFlMiIsImlhdCI6MTcyMTA2Mzg2MCwiZXhwIjoxNzIxNjY4NjYwfQ.b9IEf_1qXvJep_in8KHieszFUcCM5xc0KRjOC18MrAWa8XuUiSzKZa0AogH9Y2KB',
+                    'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9',
                     'user-agent': 'Mobile-Android',
                     'app-version': '1.4.37.1',
                     'api-version': '18',
