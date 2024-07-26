@@ -164,6 +164,8 @@ async def account_login(bot: Client, m: Message):
 
             elif '/master.mpd' in url:
              id =  url.split("/")[-2]
+            elif 'd26g5bnklkwsh4.cloudfront.net' in url or 'd1d34p8vz63oiq.cloudfront.net' in url:
+             id =  url.split("/")[-2]
              url =  "http://d.alphastudyofficial.live/v2/alpha/pw/download?v=" + id + "/hls/" + raw_text2 + "/main.m3u8"
 
 
