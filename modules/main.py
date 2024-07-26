@@ -163,7 +163,9 @@ async def account_login(bot: Client, m: Message):
                 url   = response.json()['url']
 
             elif '/master.mpd' in url:
-                url = f"https://master-extract-api-8180936ccf13.herokuapp.com/?url={url}"
+             id =  url.split("/")[-2]
+             url =  "http://d.alphastudyofficial.live/v2/alpha/pw/download?v=" + id + "/hls/" + raw_text2 + "/main.m3u8"
+
 
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
