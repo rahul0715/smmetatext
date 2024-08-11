@@ -33,7 +33,7 @@ bot = Client(
 async def start(_,message):
   await message.reply_photo(
         photo="https://telegra.ph/file/1d0c6fe5961f466d596fa.jpg",
-        caption=f"**𝙷𝚒![{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n\n"
+        caption=f"**𝙷𝚒! [{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n\n"
                 "**𝙶𝚒𝚟𝚎 /Leo ♌️ 𝙲𝚘𝚖𝚖𝚊𝚗𝚍 T𝚘 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙵𝚛𝚘𝚖 A 𝚃𝚎𝚡𝚝 F𝚒𝚕𝚎.**🎓✨",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -190,8 +190,8 @@ async def account_login(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.mkv\n\n**Batch Name :** {raw_text0}\n\n**Downloaded By** : **{MR}**'
-                cc1 = f'** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.pdf \n\n**Batch Name :** {raw_text0}\n\n**Downloaded By** : **{MR}**'
+                cc = f'** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.mkv\n\n**Batch Name :** {raw_text0}\n\n**Downloaded By :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})**'
+                cc1 = f'** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.pdf \n\n**Batch Name :** {raw_text0}\n\n**Downloaded By :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})**'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
