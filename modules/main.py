@@ -168,6 +168,8 @@ async def account_login(bot: Client, m: Message):
                 url   = response.json()['url']
             elif 'media-cdn' in url or 'webvideos' in url or 'drmcdni' in url:
              url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers={'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9'}).json()['url']
+            elif 'cpvod' in url or 'media-cdn.classplusapp.com' in url or 'media-cdn-alisg.classplusapp.com' in url:
+             url =f'https://extractbot.onrender.com/classplus?link={url}'    
             elif "apps-s3-jw-prod.utkarshapp.com" in url:
                 if 'enc_plain_mp4' in url:
                     url = url.replace(url.split("/")[-1], res+'.mp4')
